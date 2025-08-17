@@ -9,7 +9,10 @@ Jake Hongduo,SHAN
 
 ## Abstract
 
-This project implements an automated, **weekly** trading strategy for Alphabet (**GOOG**). A machine-learning model forecasts the **next 10-trading-day** log return using technical & statistical features; a **policy layer** maps the prediction to discrete actions (long/flat/short) using **risk-tuned percentiles** and a **regime filter**. The program is robust to data issues (rate limits, column variants, duplicate dates) and maintains a persistent **position state** to only rebalance on Fridays.
+This project implements an automated, **weekly** trading strategy for Alphabet (**GOOG**). 
+A machine-learning model forecasts the **next 10-trading-day** log return using technical & statistical features; 
+A **policy layer** maps the prediction to discrete actions (long/flat/short) using **risk-tuned percentiles** and a **regime filter**. 
+The program is robust to data issues (rate limits, column variants, duplicate dates) and maintains a persistent **position state** to only rebalance on Fridays.
 
 ---
 
@@ -46,9 +49,9 @@ This project implements an automated, **weekly** trading strategy for Alphabet (
 
 * **Target:**
 
-  $$
-  y_t = \log(C_{t+10}) - \log(C_t)
-  $$
+<b>Target (10-day log return):</b> y<sub>t</sub> = ln(C<sub>t+10</sub>) − ln(C<sub>t</sub>)
+
+
 
   We **build features for all dates**, but labels only exist where $C_{t+10}$ is known, letting us **predict on the newest bar** without look-ahead.
 
